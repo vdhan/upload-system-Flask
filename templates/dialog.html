@@ -1,0 +1,29 @@
+<div class="m-b-md">
+	<p>Đường dẫn tải về:</p>
+	<a href="{{ url }}" target="_blank">{{ url }}</a>
+</div>
+
+<div>
+	<b>Mã QR:</b><br>
+	<img src="{{ qr }}" class="img-responsive m-center">
+</div>
+
+<div class="m-b-md">
+	<label for="htl">Mã nhúng HTML:</label>
+	<input id="htl" type="text" class="form-control" readonly value='<a href="{{ url }}" target="_blank">{{ url }}</a>'>
+</div>
+
+<div class="m-b-md">
+	<label for="forum">Mã nhúng diễn đàn:</label>
+	<input id="forum" type="text" class="form-control" readonly value="[URL={{ url }}]{{ url }}[/URL]">
+</div>
+
+<div class="m-b-md">
+	<label for="md5">MD5:</label>
+	<input id="md5" type="text" class="form-control" readonly value="{{ md5 }}">
+</div>
+
+<div>
+	<label for="sha">SHA:</label>
+	<input id="sha" type="text" class="form-control" readonly value="{{ sha }}">
+</div>

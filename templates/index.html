@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Hoàng Ân">
+	<title>Hệ thống upload file</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+	<style>
+		body {
+			background-color: #ddd;
+		}
+
+		.wrap {
+			border: 2px solid maroon;
+			border-radius: 10px;
+			box-shadow: 0 0 10px black;
+			background-color: white;
+			overflow: hidden;
+		}
+
+		#fileToUpload {
+			border: 1px solid;
+			padding: 5px 10px;
+			border-radius: 5px;
+			width: 100%;
+		}
+
+		#fileInfo {
+			font-style: italic;
+			color: maroon;
+		}
+
+		#progressNumber {
+			color: orange;
+			position: absolute;
+			left: 0;
+			right: 0;
+		}
+	</style>
+
+	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script>
+		if(!window.jQuery) {
+			document.write('<script src="{{url_for('static', filename='js/jquery.min.js')}}"><\/script>');
+		}
+	</script>
+
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script>
+		if(!window.jQuery.fn.modal) {
+			document.write('<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"><\/script>');
+		}
+	</script>
+</head>
+
+<body class="text-reponsive">
+<div class="container text-center">
+	<div class="wrap p-md m-v-md word-wrap">
+		<h1 class="h1-reponsive">Chọn tập tin tải lên (tối đa: 50 MB)</h1>
+
+		<form id="form" role="form" enctype="multipart/form-data">
+			<div class="form-group">
+				<input type="file" name="file" id="fileToUpload">
+			</div>
+
+			<div class="form-group">
+				<button type="button" class="btn btn-success" onclick="uploadFile()" title='Tải lên'>Đồng ý</button>
+			</div>
+		</form>
+
+		<div id="source-data" class="text-left"></div>
+		<div id="fileInfo" class="text-left m-b-md"></div>
+
+		<div id="progressBar" class="progress an">
+			<span id="progressNumber" class="progress-indicator">0%</span>
+			<div id="upload-progress" class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+			     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+				<span class="sr-only progress-indicator">0%</span>
+			</div>
+		</div>
+
+		<div id="transferSpeedInfo"></div>
+		<div id="transferBytesInfo"></div>
+		<div id="timeRemainingInfo"></div>
+		<div id="upload-response"></div>
+
+		<div id="dialog-message" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title h4-reponsive"></h4>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p id="copy">Copyright &copy; 2015 Hoàng Ân</p>
+</div>
+
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>

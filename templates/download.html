@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Hoàng Ân">
+	<title>Tải file {{ file.file }}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+	<style>
+		#wrap {
+			border: 1px solid #088;
+			border-radius: 5px;
+			background-color: #0ff;
+		}
+
+		#download {
+			background-color: #c0c0c0;
+			border-radius: 5px;
+		}
+	</style>
+
+	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script>
+		if(!window.jQuery) {
+			document.write('<script src="{{url_for('static', filename='js/jquery.min.js')}}"><\/script>');
+		}
+	</script>
+
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script>
+		if(!window.jQuery.fn.modal) {
+			document.write('<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"><\/script>');
+		}
+	</script>
+</head>
+
+<body class="text-reponsive">
+<div class="container text-center">
+	<div id="wrap" class="p-md m-v-md word-wrap">
+		<p><b>{{ file.file }}</b></p>
+		<div id='download' class="h4-reponsive">
+			<a href='/download/{{ file.dir }}/{{ file.name }}?file={{ file.file }}' title="Tải xuống" class="btn btn-success btn-block h4-reponsive">
+				Tải xuống ({{ file.size }})
+			</a>
+		</div>
+	</div>
+	<p id="copy">Copyright &copy; 2015 Hoàng Ân</p>
+</div>
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
