@@ -7,7 +7,7 @@ from util import *
 from wsgi import app
 from flask import render_template, request, jsonify, Response, send_file
 import qrcode as qr
-from qrcode.image.svg import SvgPathImage
+from qrcode.image.svg import SvgPathFillImage
 from uuid import uuid4
 
 __author__ = 'an'
@@ -57,7 +57,7 @@ def home_page():
 			fw.write(ts)
 
 		img_buf = io.BytesIO()
-		factory = SvgPathImage
+		factory = SvgPathFillImage
 		img = qr.make(url, box_size=20, image_factory=factory)
 		img.save(img_buf)
 		buf = img_buf.getvalue()

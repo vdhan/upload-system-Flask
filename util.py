@@ -19,8 +19,3 @@ def shaSum(f, block = 10000000): # 10 MB/block
 		data = f.read(block)
 
 	return h.hexdigest()
-
-def ripemd(m):
-	h = hashlib.new('ripemd160')
-	h.update(m)
-	return h.hexdigest()

@@ -162,3 +162,7 @@
 .word-wrap {
 	word-wrap: break-word;
 }
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
