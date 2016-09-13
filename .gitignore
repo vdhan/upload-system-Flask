@@ -56,5 +56,5 @@ docs/_build/
 # PyBuilder
 target/
 
-.idea
-static/files
+.idea/
+static/files/
